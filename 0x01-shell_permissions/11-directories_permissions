@@ -1,3 +1,2 @@
 #!/bin/bash
-# adds execute permission to all subdirectories for everyone
 find . -type d -exec chmod a+x {} +
