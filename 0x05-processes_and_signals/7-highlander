@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
-# This script displays its PID, a message in a loop, and handles SIGTERM
-echo "$$" # Display the Process ID so the checker knows what to signal
+# This script displays its PID, a loop message, and traps SIGTERM
+echo "$$" # This is the missing piece!
 
-# The trap needs to print the message AND then exit
-trap 'echo "I am invincible!!!"; exit' SIGTERM
+# Trap the signal and print the message
+trap 'echo "I am invincible!!!"' SIGTERM
 
 while true
 do
     echo "To infinity and beyond"
-    sleep 2
+    sleep 2 &
+    wait $!
 done
