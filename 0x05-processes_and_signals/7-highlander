@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-# This script displays its PID, a loop message, and traps SIGTERM
-echo "$$" # This is the missing piece!
+# This script displays its PID and handles SIGTERM signals
+echo "$$"
 
-# Trap the signal and print the message
 trap 'echo "I am invincible!!!"' SIGTERM
 
 while true
