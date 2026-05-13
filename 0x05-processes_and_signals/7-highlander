@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
-# A Bash script that displays "To infinity and beyond" and handles SIGTERM
+# This script displays its PID, a loop message, and traps SIGTERM
+echo "$$"
 
-handle_sigterm() {
-    echo "I am invincible!!!"
-}
-
-trap "handle_sigterm" SIGTERM
+# The trap MUST match the string and punctuation exactly
+trap 'echo "I am invincible!!!"' SIGTERM
 
 while true
 do
     echo "To infinity and beyond"
+    # sleep & wait is the most responsive way to catch signals in Bash
     sleep 2 &
     wait $!
 done
