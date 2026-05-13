@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-# This script displays a message when it receives a SIGTERM signal
+# This script catches the SIGTERM signal and prints a specific message
 
-# The trap command: 
-# It catches SIGTERM and then executes the echo command
-trap "echo 'I am invincible!!!'" SIGTERM
+# Define the trap to echo the message when SIGTERM (signal 15) is received
+trap 'echo "I am invincible!!!"' SIGTERM
 
-# We need a loop to keep the process running so it can actually receive the signal
+# An infinite loop to keep the process running so it can receive signals
 while true; do
     sleep 1
 done
