@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-# This script catches the SIGTERM signal and prints a specific message
-
-# Define the trap to echo the message when SIGTERM (signal 15) is received
+# This script displays To infinity and beyond and handles SIGTERM signal
 trap 'echo "I am invincible!!!"' SIGTERM
-
-# An infinite loop to keep the process running so it can receive signals
-while true; do
-    sleep 1
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2 &
+    wait $!
 done
